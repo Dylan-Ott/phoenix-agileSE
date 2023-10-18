@@ -4,7 +4,7 @@
 }
 
 .nav h1{
-    color: blue;
+    color: orangered;
     margin: 0;
     font-size: 40px;
 }
@@ -19,15 +19,15 @@
 
 .nav .nav-search input{
     flex: 1;
-    color: blueviolet;
-    border: 1px solid blueviolet;
+    color:orangered;
+    border: 1px solid orangered;
     height: 35px;
     border-right: none;
 }
 
 .nav .nav-search button{
-    color: blue;
-    border: 1px solid blue;
+    color: black;
+    border: 1px solid orangered;
     height: 39px;
 }
 
@@ -45,5 +45,5 @@
 
 .nav ul a{
     text-decoration: none;
-    color: blue;
+    color:orangered;
 }

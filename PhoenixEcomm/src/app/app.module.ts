@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { RegistrationPageComponent } from './registration-page/registration-page.component';
+import { LandingPageComponent } from './Pages/landing-page/landing-page.component';
+import { LoginPageComponent } from './Pages/login-page/login-page.component';
+import { RegistrationPageComponent } from './Pages/registration-page/registration-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 
