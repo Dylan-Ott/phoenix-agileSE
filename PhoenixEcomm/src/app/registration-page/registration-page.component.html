@@ -1,1 +1,11 @@
-<p>registration-page works!</p>
+<div class="registration">
+    <div class="signup">
+        <h1>Register</h1>
+        <form #registration="ngForm" (ngSubmit)="signUp(registration.value)" class="common-form">
+            <input type="text" class="form-input" placeholder="Name" name="name" ngModel>
+            <input type="password" class="form-input" placeholder="Password" name="password" ngModel>
+            <input type="text" class="form-input" placeholder="Email" name="email" ngModel>
+            <button class="form-button">Submit</button>
+        </form>
+    </div>
+</div>
