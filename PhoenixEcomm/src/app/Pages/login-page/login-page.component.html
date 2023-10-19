@@ -1,1 +1,10 @@
-<p>login-page works!</p>
+<div class="login">
+    <div class="signup">
+        <h1>Login</h1>
+        <form #login="ngForm" (ngSubmit)="signUp(login.value)" class="common-form">
+            <input type="text" class="form-input" placeholder="Email" name="email" ngModel>
+            <input type="password" class="form-input" placeholder="Password" name="password" ngModel>
+            <button class="form-button">Submit</button>
+        </form>
+    </div>
+</div>

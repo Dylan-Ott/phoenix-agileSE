@@ -2,3 +2,10 @@ img{
     display: block;
     margin-left: 0%;
 }
+
+div.missionStatement {
+    width: 500px;
+    word-wrap: normal;
+    font-size: x-large;
+    margin-left: 5%;
+}

@@ -3,8 +3,19 @@
         <h1>Register</h1>
         <form #registration="ngForm" (ngSubmit)="signUp(registration.value)" class="common-form">
             <input type="text" class="form-input" placeholder="Name" name="name" ngModel>
-            <input type="password" class="form-input" placeholder="Password" name="password" ngModel>
             <input type="text" class="form-input" placeholder="Email" name="email" ngModel>
+            <input type="password" class="form-input" placeholder="Password" name="password" ngModel 
+                required #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                <div *ngIf="password.invalid && password.touched" class="alert alert-danger">
+                    <div *ngIf="password.errors['required']">Password is a required field</div>
+                    <div *ngIf="password.errors['pattern']">Password must be at least 8 characters long and contain one uppercase letter and one lowercase letter</div>
+                </div>
+            <input type="password" class="form-input" placeholder="Confirm Password" name="confirm-password" ngModel
+                required #confirmPassword="ngModel" pattern="{{password.value}}">
+                <div *ngIf="confirmPassword.invalid && confirmPassword.touched" class="alert alert-danger">
+                    <div *ngIf="confirmPassword.errors['required']">Password is a required field</div>
+                    <div *ngIf="confirmPassword.errors['pattern']">Passwords do not match</div>
+                </div>
             <button class="form-button">Submit</button>
         </form>
     </div>
