@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="700.0" minWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CartController">
+   <children>
+      <Label layoutX="79.0" layoutY="84.0" prefHeight="31.0" prefWidth="204.0" text="Order Summary:">
+         <font>
+            <Font size="26.0" />
+         </font></Label>
+      <TableView fx:id="cartTable" layoutX="69.0" layoutY="169.0" prefHeight="200.0" prefWidth="733.0">
+        <columns>
+          <TableColumn fx:id="productId" prefWidth="116.0" text="ProductId" />
+          <TableColumn fx:id="productName" minWidth="0.0" prefWidth="213.0" text="Item Name" />
+            <TableColumn fx:id="price" prefWidth="108.0" text="Price" />
+            <TableColumn fx:id="quantity" prefWidth="136.0" text="Quantity" />
+            <TableColumn fx:id="itemTotalValue" prefWidth="159.0" text="Item Total Price" />
+        </columns>
+      </TableView>
+      <Label fx:id="totalValue" layoutX="619.0" layoutY="514.0" prefHeight="37.0" prefWidth="211.0" text="Total Cart Value: $0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="575.0" layoutY="40.0" mnemonicParsing="false" onAction="#goToPayment" prefHeight="31.0" prefWidth="130.0" text="Proceed to Payment" />
+      <Button layoutX="724.0" layoutY="40.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="31.0" prefWidth="78.0" text="Logout" />
+      <Button layoutX="69.0" layoutY="40.0" mnemonicParsing="false" onAction="#goToCatalog" prefHeight="31.0" prefWidth="67.0" text="Back">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="orderLabel" layoutX="69.0" layoutY="142.0" prefHeight="17.0" prefWidth="204.0" text="Please review your cart order" />
+   </children>
+</AnchorPane>

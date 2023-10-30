@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="700.0" minWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistrationController">
+   <children>
+      <Label fx:id="lblName" layoutX="332.0" layoutY="144.0" prefHeight="26.0" prefWidth="71.0" text="Full Name:" />
+      <Label fx:id="lblContact" layoutX="332.0" layoutY="206.0" text="Contact Number:" />
+      <Label fx:id="lblEmail" layoutX="332.0" layoutY="261.0" prefHeight="0.0" prefWidth="60.0" text="E-mail:" />
+      <Label fx:id="lblRegister" alignment="CENTER" layoutX="381.0" layoutY="58.0" prefHeight="43.0" prefWidth="237.0" text="User Registration">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Button fx:id="btnSubmit" layoutX="475.0" layoutY="510.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="34.0" prefWidth="71.0" text="Submit">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <TextField fx:id="tfName" layoutX="431.0" layoutY="144.0" />
+      <TextField fx:id="tfContact" layoutX="431.0" layoutY="201.0" />
+      <TextField fx:id="tfEmail" layoutX="431.0" layoutY="256.0" />
+      <Button fx:id="backToLogin" layoutX="744.0" layoutY="63.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="31.0" prefWidth="116.0" text="Back to Login">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblUserName" layoutX="332.0" layoutY="321.0" prefHeight="17.0" prefWidth="71.0" text="User Name:" />
+      <TextField fx:id="tfUserId" layoutX="431.0" layoutY="317.0" />
+      <PasswordField fx:id="tfUserPassword" layoutX="431.0" layoutY="376.0" />
+      <Label fx:id="lblPassword" layoutX="332.0" layoutY="376.0" prefHeight="26.0" prefWidth="71.0" text="Password:" />
+      <Label fx:id="errorNameField" layoutX="436.0" layoutY="177.0" text="Name cannot be empty" textFill="#dd0b0b" visible="false" />
+      <Label fx:id="errorEmail" layoutX="435.0" layoutY="288.0" text="Enter a valid Email Id" textFill="#dd0b0b" visible="false" />
+      <Label fx:id="errorContact" layoutX="434.0" layoutY="233.0" prefHeight="17.0" prefWidth="153.0" text="Enter a valid phone number" textFill="#dd0b0b" visible="false" />
+      <Label fx:id="errorUserName" layoutX="433.0" layoutY="350.0" text="Username cannot be empty" textFill="#dd0b0b" visible="false" />
+      <Label fx:id="errorPassword" layoutX="434.0" layoutY="408.0" text="Password cannot be empty" textFill="#dd0b0b" visible="false" />
+   </children>
+</AnchorPane>

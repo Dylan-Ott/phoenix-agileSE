@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CatalogExpensesController">
+   <children>
+      <PieChart fx:id="catalogData" layoutX="182.0" layoutY="169.0" />
+      <Button layoutX="74.0" layoutY="43.0" mnemonicParsing="false" onAction="#goToCatalog" prefHeight="29.0" prefWidth="110.0" text="Back To Catalog" />
+   </children>
+</AnchorPane>
