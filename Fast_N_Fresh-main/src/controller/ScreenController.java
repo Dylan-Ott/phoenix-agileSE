@@ -23,6 +23,10 @@ public class ScreenController {
         }
 	}
 	
+	public static void goToHomePage(ActionEvent event) {
+        showStage(event, "../view/Home.fxml", "Home");
+    }
+	
 	public static void goToFruitsPage(ActionEvent event) {
         showStage(event, "../view/Fruits.fxml", "Fruits");
     }
@@ -72,5 +76,9 @@ public class ScreenController {
     
     public static void goToOrderHistoryPage(ActionEvent event) {
         showStage(event, "../view/OrderExpenses.fxml", "Order History");
+    }
+    
+	public static void goToCustomerServicePage(ActionEvent event) {
+        showStage(event, "../view/CustomerService.fxml", "Home");
     }
 }

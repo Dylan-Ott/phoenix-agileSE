@@ -14,12 +14,15 @@ public class HomeController extends ProductBaseController {
 	
 	@FXML
 	private Button btnCatalog;
+	
+	@FXML
+	private Button btnCustomerService;
     
     @Override
 	void initialize() {
 	}
 
-    // Validate the user credentials and go to Catalog Page
+    // Go to Catalog Page
 	@FXML
 	public void goToCatalog(ActionEvent event) {
 		
@@ -33,18 +36,17 @@ public class HomeController extends ProductBaseController {
 		ScreenController.goToRegistrationPage(event);
 	}
 	
-	// Go to the User Registration Page
+	// Go to the User Login Page
 	@FXML
 	public void goToLogin(ActionEvent event) {
 
 		ScreenController.goToLoginPage(event);
 	}
 	
-	// Go to the User Registration Page
-//	@FXML
-//	public void goToCustomerService(ActionEvent event) {
-//
-//		ScreenController.goToCusomterServicePage(event);
-//	}
+	@FXML
+	public void goToCustomerService(ActionEvent event) {
+
+		ScreenController.goToCustomerServicePage(event);
+	}
 
 }

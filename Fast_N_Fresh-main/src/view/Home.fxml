@@ -19,9 +19,13 @@
          <font>
             <Font size="23.0" />
          </font></Button>
-      <Button fx:id="btnCatalog" layoutX="705.0" layoutY="441.0" mnemonicParsing="false" onAction="#goToCatalog" prefHeight="47.0" prefWidth="114.0" text="Register" textFill="#49cd54">
+      <Button fx:id="btnCatalog" layoutX="884.0" layoutY="442.0" mnemonicParsing="false" onAction="#goToCatalog" prefHeight="47.0" prefWidth="114.0" text="Catalog" textFill="#49cd54">
          <font>
             <Font size="23.0" />
+         </font></Button>
+      <Button fx:id="btnCustomerService" layoutX="1063.0" layoutY="443.0" mnemonicParsing="false" onAction="#goToCustomerService" prefHeight="47.0" prefWidth="114.0" text="Customer Service" textFill="#49cd54">
+         <font>
+            <Font size="14.0" />
          </font></Button>
       <ImageView fitHeight="338.0" fitWidth="416.0" layoutX="17.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
          <image>
