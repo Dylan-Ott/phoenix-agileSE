@@ -36,7 +36,6 @@
          <image>
             <Image url="@../images/FastnFreshLogo.jpeg" />
          </image>
-         <Text>Welcome to Phoenix Fast-n-Fresh!\nWe're happy to supply all of your produce needs!</Text>
       </ImageView>
    </children>
 </AnchorPane>

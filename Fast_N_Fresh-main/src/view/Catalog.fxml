@@ -73,5 +73,6 @@
          </font>
       </Label>
       <Button layoutX="510.0" layoutY="39.0" mnemonicParsing="false" onAction="#goToOrderHistory" prefHeight="27.0" prefWidth="94.0" text="Order History" />
+      <Button layoutX="510.0" layoutY="39.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="27.0" prefWidth="94.0" text="Home" />
    </children>
 </AnchorPane>

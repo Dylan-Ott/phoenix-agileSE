@@ -70,4 +70,8 @@ public class CatalogController extends ProductBaseController {
 		ScreenController.goToOrderHistoryPage(event);
 	}
 
+	@FXML
+	void goToHome(ActionEvent event) {
+		ScreenController.goToHomePage(event);
+	}
 }
