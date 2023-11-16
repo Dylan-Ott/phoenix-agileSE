@@ -40,7 +40,7 @@ public class Cart {
 			cartItems.get(entity.getProductId()).setQuantity(quantity);
 
 			System.out.println(cartItems.get(entity.getProductId()).getQuantity());
-			cartItems.put(entity.getProductId(), cartItems.get(entity));
+			cartItems.put(entity.getProductId(), cartItems.get(entity.getProductId()));
 
 		} else {
 			cartItems.put(entity.getProductId(), entity);
