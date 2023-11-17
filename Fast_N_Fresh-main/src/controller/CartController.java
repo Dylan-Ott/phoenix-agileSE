@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -36,6 +37,9 @@ public class CartController extends ProductBaseController implements Initializab
 	@FXML
 	private TableColumn<CartItem, Integer> quantity;
 
+	@FXML 
+	private TableColumn<CartItem, String> removeItem;
+	
 	@FXML
 	private Label orderLabel;
 
@@ -71,6 +75,7 @@ public class CartController extends ProductBaseController implements Initializab
 		price.setCellValueFactory(new PropertyValueFactory<CartItem, Double>("price"));
 		quantity.setCellValueFactory(new PropertyValueFactory<CartItem, Integer>("quantity"));
 		itemTotalValue.setCellValueFactory(new PropertyValueFactory<CartItem, String>("itemTotalValue"));
+		removeItem.setCellValueFactory(new PropertyValueFactory<CartItem, String>("removeItem"));
 		cartTable.setItems(list);
 		for (CartItem p : list) {
 			totalCartValue += (double) p.getQuantity() * p.getPrice();

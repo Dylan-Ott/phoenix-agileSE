@@ -11,21 +11,21 @@
 
 <AnchorPane minHeight="700.0" minWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
    <children>
-      <Button fx:id="btnSignIn" layoutX="526.0" layoutY="440.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="48.0" prefWidth="122.0" text="Sign In" textFill="#2fc955">
+      <Button fx:id="btnSignIn" layoutX="526.0" layoutY="400.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="48.0" prefWidth="122.0" text="Sign In" textFill="#2fc955">
          <font>
             <Font size="23.0" />
          </font></Button>
-      <Button fx:id="btnRegister" layoutX="705.0" layoutY="441.0" mnemonicParsing="false" onAction="#goToRegistration" prefHeight="47.0" prefWidth="114.0" text="Register" textFill="#49cd54">
+      <Button fx:id="btnRegister" layoutX="705.0" layoutY="400.0" mnemonicParsing="false" onAction="#goToRegistration" prefHeight="47.0" prefWidth="114.0" text="Register" textFill="#49cd54">
          <font>
             <Font size="23.0" />
          </font></Button>
-      <Button fx:id="btnCatalog" layoutX="884.0" layoutY="442.0" mnemonicParsing="false" onAction="#goToCatalog" prefHeight="47.0" prefWidth="114.0" text="Catalog" textFill="#49cd54">
+      <Button fx:id="btnCatalog" layoutX="526.0" layoutY="480.0" mnemonicParsing="false" onAction="#goToCatalog" prefHeight="47.0" prefWidth="122.0" text="Catalog" textFill="#49cd54">
          <font>
             <Font size="23.0" />
          </font></Button>
-      <Button fx:id="btnCustomerService" layoutX="1063.0" layoutY="443.0" mnemonicParsing="false" onAction="#goToCustomerService" prefHeight="47.0" prefWidth="114.0" text="Customer Service" textFill="#49cd54">
+      <Button fx:id="btnCustomerService" layoutX="705.0" layoutY="480.0" mnemonicParsing="false" onAction="#goToCustomerService" prefHeight="47.0" prefWidth="114.0" text="Customer Service" textFill="#49cd54">
          <font>
-            <Font size="14.0" />
+            <Font size="11.0" />
          </font></Button>
       <ImageView fitHeight="338.0" fitWidth="416.0" layoutX="17.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
          <image>

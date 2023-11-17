@@ -3,12 +3,14 @@ package model;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+
 public class CartItem {
 
 	private String productId;
 	private String productName;
 	private int quantity;
 	private double price;
+	private String removeItem;
 
 	private String itemTotalValue;
 	
@@ -20,6 +22,7 @@ public class CartItem {
         this.productName = name;
         this.quantity = quantity;
         this.price = price;
+        this.removeItem = "X";
         this.setItemTotalValue();
     }
 	
