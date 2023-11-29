@@ -16,8 +16,8 @@
             <Font size="24.0" />
          </font></Label>
       <Label fx:id="lblPassword" layoutX="508.0" layoutY="328.0" text="Password:" />
-      <Label fx:id="lblUsername" layoutX="507.0" layoutY="266.0" text="Username:" />
-      <TextField fx:id="tfUsername" layoutX="690.0" layoutY="262.0" />
+      <Label fx:id="lblEmail" layoutX="507.0" layoutY="266.0" text="Email:" />
+      <TextField fx:id="tfEmail" layoutX="690.0" layoutY="262.0" />
       <Button fx:id="btnSignIn" layoutX="526.0" layoutY="440.0" mnemonicParsing="false" onAction="#goToCatalog" prefHeight="48.0" prefWidth="122.0" text="Sign In" textFill="#2fc955">
          <font>
             <Font size="23.0" />
@@ -36,8 +36,8 @@
             <Image url="@../images/FastnFreshLogo.jpeg" />
          </image>
       </ImageView>
-      <PasswordField fx:id="tfPassword" layoutX="690.0" layoutY="324.0" prefHeight="26.0" prefWidth="160.0" />
-      <Label fx:id="errorUserLabel" layoutX="696.0" layoutY="294.0" prefHeight="17.0" prefWidth="160.0" text="Enter Valid Username" textFill="#e10b0b" visible="false" />
+      <PasswordField fx:id="tfPassword" layoutX="690.0" layoutY="324.0" prefHeight="26.0" />
+      <Label fx:id="errorUserLabel" layoutX="696.0" layoutY="294.0" prefHeight="17.0" prefWidth="160.0" text="Enter Valid Email" textFill="#e10b0b" visible="false" />
       <Label fx:id="errorPassLabel" layoutX="696.0" layoutY="358.0" prefHeight="17.0" prefWidth="160.0" text="Enter Valid Password" textFill="#e10b0b" visible="false" />
    </children>
 </AnchorPane>

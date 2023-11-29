@@ -18,7 +18,7 @@ import model.DatabaseConnector;
 public class LoginController extends ProductBaseController {
 	
 	@FXML
-	private TextField tfUsername;
+	private TextField tfEmail;
 	
 	@FXML
 	private PasswordField tfPassword;
@@ -27,7 +27,7 @@ public class LoginController extends ProductBaseController {
 	private Label lblPassword;
 	
 	@FXML
-	private Label lblUsername;
+	private Label lblEmail;
 
 	@FXML
 	private Button btnRegister;
@@ -43,7 +43,7 @@ public class LoginController extends ProductBaseController {
     
     @Override
 	void initialize() {
-		tfUsername.setText(null);
+		tfEmail.setText(null);
 		tfPassword.setText(null);
 	}
 
@@ -53,15 +53,15 @@ public class LoginController extends ProductBaseController {
 		try {
 			Connection conn = DatabaseConnector.getInstance();
 			Statement st = conn.createStatement();
-			String query = "select password, full_name from user_info where user_name = '" + tfUsername.getText() + "'";
+			String query = "select password, full_name from user_info where user_name = '" + tfEmail.getText() + "'";
 			ResultSet rs = st.executeQuery(query);
 			if (rs.next()) {
 				String storedPassword = rs.getString(1);
-				tfUsername.setStyle(null);
+				tfEmail.setStyle(null);
 				errorUserLabel.setVisible(false);
 				if (storedPassword.equals(tfPassword.getText())) {
 					// Pop up login successful
-					userId = tfUsername.getText();
+					userId = tfEmail.getText();
 					userName = rs.getString(2);
 					tfPassword.setBorder(null);
 					tfPassword.setStyle(null);
@@ -88,8 +88,8 @@ public class LoginController extends ProductBaseController {
 					System.out.println("Incorrect Password");
 				}
 			} else {
-				tfUsername.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
-				new animatefx.animation.Shake(tfUsername).play();
+				tfEmail.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
+				new animatefx.animation.Shake(tfEmail).play();
 				errorUserLabel.setVisible(true);
 				Dialog<String> dialog = new Dialog<String>();
 				dialog.setTitle("Login");

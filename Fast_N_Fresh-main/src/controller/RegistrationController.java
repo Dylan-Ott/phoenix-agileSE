@@ -34,9 +34,6 @@ public class RegistrationController {
 	private TextField tfName;
 
 	@FXML
-	private TextField tfUserId;
-
-	@FXML
 	private PasswordField tfUserPassword;
 
 	@FXML
@@ -52,9 +49,6 @@ public class RegistrationController {
 	private Label errorPassword;
 
 	@FXML
-	private Label errorUserName;
-
-	@FXML
 	private Label lblName;
 
 	@FXML
@@ -63,14 +57,12 @@ public class RegistrationController {
 	@FXML
 	private Label lblEmail;
 
-	@FXML
-	private Label lblUserName;
 
 	@FXML
 	private Label lblPassword;
 
 
-	// Validate the name, contact, email, username and password fields to be valid before registration
+	// Validate the name, contact, email, and password fields to be valid before registration
 	// Registers user successfully in the Database if validations are successful
 	// Returns by Highlighting the invalid fields if validation fails
 	@FXML
@@ -99,13 +91,6 @@ public class RegistrationController {
 			this.showDialog("Please Enter valid Email");
 			return;
 		}
-		if (!isValidUsername()) {
-			tfUserId.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
-			new animatefx.animation.Shake(tfUserId).play();
-			errorUserName.setVisible(true);
-			this.showDialog("Username cannot be empty");
-			return;
-		}
 		if (!isValidPassword()) {
 			tfUserPassword.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
 			new animatefx.animation.Shake(tfUserPassword).play();
@@ -118,7 +103,7 @@ public class RegistrationController {
 		try {
 			Connection conn = DatabaseConnector.getInstance();
 			preparedStmt = conn.prepareStatement(query);
-			preparedStmt.setString(1, tfUserId.getText());
+			preparedStmt.setString(1, tfEmail.getText());
 			preparedStmt.setString(2, tfName.getText());
 			preparedStmt.setString(3, tfContact.getText());
 			preparedStmt.setString(4, tfEmail.getText());
@@ -170,14 +155,6 @@ public class RegistrationController {
 		return matcher.matches();
 	}
 
-	public boolean isValidUsername() {
-		String username = tfUserId.getText();
-		if (username.length() > 0) {
-			return true;
-		}
-		return false;
-	}
-
 	public boolean isValidPassword() {
 		String pass = tfUserPassword.getText();
 		if (pass.length() > 0) {
@@ -191,7 +168,6 @@ public class RegistrationController {
 		tfName.setStyle(null);
 		tfContact.setStyle(null);
 		tfEmail.setStyle(null);
-		tfUserId.setStyle(null);
 		tfUserPassword.setStyle(null);
 	}
 
@@ -201,7 +177,6 @@ public class RegistrationController {
 		errorEmail.setVisible(false);
 		errorNameField.setVisible(false);
 		errorPassword.setVisible(false);
-		errorUserName.setVisible(false);
 
 	}
 
@@ -210,7 +185,6 @@ public class RegistrationController {
 		tfName.setText(null);
 		tfContact.setText(null);
 		tfEmail.setText(null);
-		tfUserId.setText(null);
 		tfUserPassword.setText(null);
 
 	}
