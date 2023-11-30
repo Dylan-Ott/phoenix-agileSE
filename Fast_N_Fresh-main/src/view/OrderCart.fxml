@@ -20,7 +20,6 @@
             <TableColumn fx:id="price" prefWidth="108.0" text="Price" />
             <TableColumn fx:id="quantity" prefWidth="136.0" text="Quantity" />
             <TableColumn fx:id="itemTotalValue" prefWidth="139.0" text="Item Total Price" />
-            <TableColumn fx:id="removeItem" prefWidth="60" text="Remove" />
         </columns>
       </TableView>
       <Label fx:id="totalValue" layoutX="619.0" layoutY="514.0" prefHeight="37.0" prefWidth="211.0" text="Total Cart Value: $0">

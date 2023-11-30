@@ -26,5 +26,7 @@ public abstract class ProductBaseController {
 		public void logOff() {
 			cart.clearCart();
 			inventoryItems.clear();
+			userId="";
+			userName="";
 		}
 }

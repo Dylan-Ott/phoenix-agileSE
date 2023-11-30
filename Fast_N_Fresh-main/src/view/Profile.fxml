@@ -42,7 +42,7 @@
         <columns>
           <TableColumn fx:id="histTableDate" prefWidth="160.0" text="Date" />
           <TableColumn fx:id="histTableProductName" prefWidth="160.0" text="Product Name" />
-          <TableColumn fx:id="histTableCost" minWidth="0.0" prefWidth="80.0" text="Total" />
+          <TableColumn fx:id="histTableCost" minWidth="0.0" prefWidth="81.0" text="Total" />
         </columns>
       </TableView>
    </children>

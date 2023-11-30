@@ -225,7 +225,7 @@ public class PaymentSceneController extends ProductBaseController {
 		try {
 			orderStmt = conn.prepareStatement(query);
 			orderStmt.setString(1, userId);
-			orderStmt.setString(2, item.getProductId());
+			orderStmt.setString(2, item.getProductName());
 			orderStmt.setString(3, item.getItemTotalValue());
 			orderStmt.setString(4, product.getCatalog());
 			orderStmt.setString(5, order_date);

@@ -10,7 +10,6 @@ public class CartItem {
 	private String productName;
 	private int quantity;
 	private double price;
-	private String removeItem;
 
 	private String itemTotalValue;
 	
@@ -22,7 +21,6 @@ public class CartItem {
         this.productName = name;
         this.quantity = quantity;
         this.price = price;
-        this.removeItem = "X";
         this.setItemTotalValue();
     }
 	
