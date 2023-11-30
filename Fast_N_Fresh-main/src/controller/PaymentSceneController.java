@@ -178,7 +178,6 @@ public class PaymentSceneController extends ProductBaseController {
 		// Adding buttons to the dialog pane
 		dialog.getDialogPane().getButtonTypes().add(type);
 		dialog.showAndWait();
-		logOff();
 		ScreenController.goToCatalogPage(event);
 	}
 
