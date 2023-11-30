@@ -19,7 +19,7 @@ public class Main extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/Home.fxml"));
 		if(now.isAfter(startMaint) && now.isBefore(stopMaint))
 		{
-			root = FXMLLoader.load(getClass().getResource("/view/Maintenance.fxml"));
+//			root = FXMLLoader.load(getClass().getResource("/view/Maintenance.fxml"));
 		}
 		Scene sceneRoot = new Scene(root);
 		primaryStage.setTitle("home");

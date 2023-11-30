@@ -16,6 +16,18 @@ public class CatalogController extends ProductBaseController {
 	public void initialize() {
 		lblUserName.setText("Hi " + userName + ", We are Open!!");
 	}
+	
+	@FXML
+	public void goToProfile(ActionEvent event) {
+		if (userId.compareTo("") == 0)
+		{
+			ScreenController.goToLoginPage(event);
+		}
+		else
+		{
+			ScreenController.goToProfilePage(event);
+		}
+	}
 
 	@FXML
 	public void goToFruits(ActionEvent event) {
@@ -56,7 +68,7 @@ public class CatalogController extends ProductBaseController {
 	@FXML
 	void goToLogin(ActionEvent event) {
 		logOff();
-		ScreenController.goToLoginPage(event);
+		ScreenController.goToHomePage(event);
 	}
 
 	@FXML

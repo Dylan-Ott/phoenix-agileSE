@@ -57,7 +57,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Label fx:id="lblCatalig" contentDisplay="TOP" layoutX="401.0" layoutY="75.0" text="Catalog">
+      <Label fx:id="lblCatalog" contentDisplay="TOP" layoutX="401.0" layoutY="75.0" text="Catalog">
          <font>
             <Font name="Arial" size="24.0" />
          </font></Label>
@@ -66,7 +66,11 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="618.0" layoutY="39.0" mnemonicParsing="false" onAction="#goToCatalogExpenses" prefHeight="27.0" prefWidth="114.0" text="View my Expense" />
+      <Button layoutX="618.0" layoutY="39.0" mnemonicParsing="false" onAction="#goToProfile" prefHeight="27.0" prefWidth="114.0" text="Profile">
+      	 <font>
+      	 	<Font size="14.0"/>
+      	 </font>
+      </Button>
       <Label fx:id="lblUserName" layoutX="70.0" layoutY="39.0" prefHeight="27.0" prefWidth="299.0" text="Hi, ">
          <font>
             <Font size="15.0" />

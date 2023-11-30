@@ -79,6 +79,10 @@ public class ScreenController {
     }
     
 	public static void goToCustomerServicePage(ActionEvent event) {
-        showStage(event, "../view/CustomerService.fxml", "Home");
+        showStage(event, "../view/CustomerService.fxml", "Customer Service");
     }
+	
+	public static void goToProfilePage(ActionEvent event) {
+		showStage(event, "../view/Profile.fxml", "Profile");
+	}
 }
