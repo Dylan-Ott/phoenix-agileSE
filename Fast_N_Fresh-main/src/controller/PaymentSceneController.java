@@ -8,6 +8,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -16,6 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
@@ -32,7 +35,7 @@ import model.Product;
 
 public class PaymentSceneController extends ProductBaseController {
 
-	private boolean codStatus = true;
+	private boolean codStatus = false;
 
 	@FXML
 	private Button confirmorder;
@@ -72,6 +75,62 @@ public class PaymentSceneController extends ProductBaseController {
 
 	@FXML
 	private ToggleGroup payment;
+	
+	@FXML
+	private ComboBox<String> state;
+	
+	private ObservableList<String> states =
+			FXCollections.observableArrayList(
+					"AL",
+					"AK",
+					"AZ",
+					"AR",
+					"CA",
+					"CO",
+					"CT",
+					"DE",
+					"FL",
+					"GA",
+					"HI",
+					"ID",
+					"IL",
+					"IN",
+					"IA",
+					"KS",
+					"KY",
+					"LA",
+					"ME",
+					"MD",
+					"MA",
+					"MI",
+					"MN",
+					"MS",
+					"MO",
+					"MT",
+					"NE",
+					"NV",
+					"NH",
+					"NJ",
+					"NM",
+					"NY",
+					"NC",
+					"ND",
+					"OH",
+					"OK",
+					"OR",
+					"PA",
+					"RI",
+					"SC",
+					"SD",
+					"TN",
+					"TX",
+					"UT",
+					"VT",
+					"VA",
+					"WA",
+					"WV",
+					"WI",
+					"WY");
 
 	// Logout of the application and return to the Login Page
 	@FXML
@@ -112,6 +171,7 @@ public class PaymentSceneController extends ProductBaseController {
 		cvvField.setDisable(codStatus);
 		nameField.setDisable(codStatus);
 		dateField.setDisable(codStatus);
+		state.getItems().setAll(states);
 	}
 
 	private String order_date = new SimpleDateFormat("YYYY-MM-dd").format(new Date());
