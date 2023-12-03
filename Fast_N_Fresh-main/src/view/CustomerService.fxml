@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,14 +17,18 @@
             <Font size="24.0" />
          </font></Label>
       <Label fx:id="lblName" layoutX="508.0" layoutY="266.0" text="Name:" />
-      <Label fx:id="lblEmail" layoutX="507.0" layoutY="328.0" text="Email:" />
-      <Label fx:id="lblMessage" layoutX="506.0" layoutY="390.0" text="Message:"/>
-      <TextField fx:id="tfName" layoutX="690.0" layoutY="262.0" />
-      <TextField fx:id="tfEmail" layoutX="690.0" layoutY="324.0" />
-      <TextField fx:id="tfMessage" layoutX="690.0" layoutY="386.0" />
-      <Button fx:id="btnSubmit" layoutX="526.0" layoutY="600.0" mnemonicParsing="false" onAction="#submitServiceRequest" prefHeight="48.0" prefWidth="122.0" text="Submit" textFill="#2fc955">
+      <Label fx:id="lblEmail" layoutX="508.0" layoutY="328.0" text="Email:" />
+      <Label fx:id="lblMessage" layoutX="508.0" layoutY="390.0" text="Message:"/>
+      <TextField fx:id="tfName" layoutX="550.0" layoutY="262.0" />
+      <TextField fx:id="tfEmail" layoutX="550.0" layoutY="324.0" />
+      <TextArea fx:id="tfMessage" layoutX="570.0" layoutY="386.0" prefWidth="200" prefHeight="150.0" wrapText="true" />
+      <Button fx:id="btnSubmit" layoutX="515.0" layoutY="600.0" mnemonicParsing="false" onAction="#submitServiceRequest" prefHeight="48.0" prefWidth="122.0" text="Submit" textFill="#2fc955">
          <font>
             <Font size="23.0" />
+         </font></Button>
+      <Button fx:id="btnHome" layoutX="680.0" layoutY="600.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="48.0" prefWidth="122.0" text="Return to Home" textFill="#2fc955">
+         <font>
+            <Font size="14.0" />
          </font></Button>
       <ImageView fitHeight="338.0" fitWidth="416.0" layoutX="17.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
          <image>

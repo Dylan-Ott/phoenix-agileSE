@@ -42,6 +42,12 @@ public class PaymentSceneController extends ProductBaseController {
 
 	@FXML
 	private TextField addressField;
+	
+	@FXML
+	private TextField zipField;
+	
+	@FXML
+	private TextField cityField;
 
 	@FXML
 	private AnchorPane myAnchorPane;
@@ -69,6 +75,15 @@ public class PaymentSceneController extends ProductBaseController {
 
 	@FXML
 	private Label errorAddress;
+	
+	@FXML
+	private Label errorZip;
+	
+	@FXML
+	private Label errorCity;
+	
+	@FXML
+	private Label errorName;
 
 	@FXML
 	private Label errorCardNumber;
@@ -179,50 +194,108 @@ public class PaymentSceneController extends ProductBaseController {
 	// Validate and place order successfully
 	@FXML
 	public void handlebtnconfirmorder(ActionEvent event) {
-		if (isAddressValid()) {
-			errorAddress.setVisible(false);
-			addressField.setStyle(null);
-			// Proceed to Ordering if Cash On Delivery is selected
-			// Else do Credit card number validation
-			if (codStatus) {
-				proceedOrder(event);
-			} else {
-				String cardnum = cardnumber.getText();
-				long number = Long.parseLong(cardnum);
-				if (isValid(number)) {
-					errorCardNumber.setVisible(false);
-					cardnumber.setStyle(null);
-					proceedOrder(event);
-				} else {
-					errorCardNumber.setVisible(true);
-					cardnumber.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
-					new animatefx.animation.Shake(cardnumber).play();
+		// Do shipping address checks
+		if (isNameValid())
+		{
+			if (isAddressValid()) {
+				errorAddress.setVisible(false);
+				addressField.setStyle(null);
+				if (isCityValid()) {
+					if (isZipValid()) {
+						// Proceed to Ordering if Cash On Delivery is selected
+						// Else do Credit card number validation
+						if (codStatus) {
+							proceedOrder(event);
+						} else {
+							String cardnum = cardnumber.getText();
+							long number = Long.parseLong(cardnum);
+							if (isValid(number)) {
+								errorCardNumber.setVisible(false);
+								cardnumber.setStyle(null);
+								proceedOrder(event);
+							} else {
+								errorCardNumber.setVisible(true);
+								cardnumber.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
+								new animatefx.animation.Shake(cardnumber).play();
+								Dialog<String> dialog = new Dialog<String>();
+								// Setting the title
+								dialog.setTitle("Invalid Card");
+								ButtonType type = new ButtonType("OK", ButtonData.OK_DONE);
+								// Setting the content of the dialog
+								dialog.setContentText("Card Number is invalid");
+								// Adding buttons to the dialog pane
+								dialog.getDialogPane().getButtonTypes().add(type);
+								dialog.showAndWait();
+
+							}
+						}
+					}
+					else
+					{
+						// bad zip
+						errorZip.setVisible(true);
+						zipField.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
+						new animatefx.animation.Shake(zipField).play();
+						Dialog<String> dialog = new Dialog<String>();
+						// Setting the title
+						dialog.setTitle("Invalid Postal Code");
+						ButtonType type = new ButtonType("OK", ButtonData.OK_DONE);
+						// Setting the content of the dialog
+						dialog.setContentText("Postal code should be 5 numbers");
+						// Adding buttons to the dialog pane
+						dialog.getDialogPane().getButtonTypes().add(type);
+						dialog.showAndWait();
+					}
+				}
+				else
+				{
+					// bad city
+					errorCity.setVisible(true);
+					cityField.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
+					new animatefx.animation.Shake(cityField).play();
 					Dialog<String> dialog = new Dialog<String>();
 					// Setting the title
-					dialog.setTitle("Invalid Card");
+					dialog.setTitle("Invalid City");
 					ButtonType type = new ButtonType("OK", ButtonData.OK_DONE);
 					// Setting the content of the dialog
-					dialog.setContentText("Card Number is invalid");
+					dialog.setContentText("City cannot be empty");
 					// Adding buttons to the dialog pane
 					dialog.getDialogPane().getButtonTypes().add(type);
 					dialog.showAndWait();
-
 				}
+			} else {
+				// bad street address
+				errorAddress.setVisible(true);
+				addressField.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
+				new animatefx.animation.Shake(addressField).play();
+				Dialog<String> dialog = new Dialog<String>();
+				// Setting the title
+				dialog.setTitle("Invalid Address");
+				ButtonType type = new ButtonType("OK", ButtonData.OK_DONE);
+				// Setting the content of the dialog
+				dialog.setContentText("Address cannot be empty");
+				// Adding buttons to the dialog pane
+				dialog.getDialogPane().getButtonTypes().add(type);
+				dialog.showAndWait();
 			}
-		} else {
-			errorAddress.setVisible(true);
-			addressField.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
-			new animatefx.animation.Shake(addressField).play();
+		}
+		else
+		{
+			// bad name
+			errorName.setVisible(true);
+			nameField.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
+			new animatefx.animation.Shake(nameField).play();
 			Dialog<String> dialog = new Dialog<String>();
 			// Setting the title
-			dialog.setTitle("Invalid Address");
+			dialog.setTitle("Invalid Name");
 			ButtonType type = new ButtonType("OK", ButtonData.OK_DONE);
 			// Setting the content of the dialog
-			dialog.setContentText("Address cannot be empty");
+			dialog.setContentText("Name cannot be empty");
 			// Adding buttons to the dialog pane
 			dialog.getDialogPane().getButtonTypes().add(type);
 			dialog.showAndWait();
 		}
+		
 
 	}
 
@@ -304,6 +377,39 @@ public class PaymentSceneController extends ProductBaseController {
 			return true;
 		}
 		return false;
+	}
+	
+	public boolean isNameValid() {
+		String name = nameField.getText().trim();
+		if (name.length() > 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isCityValid() {
+		String name = cityField.getText().trim();
+		if (name.length() > 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isZipValid() {
+		String zip = zipField.getText();
+		if(zip.length() == 5)
+		{
+			try {
+				int goodZip = Integer.parseInt(zip);
+				return true;
+			} catch (Exception e) {
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	/** Return true if the card number is valid */
