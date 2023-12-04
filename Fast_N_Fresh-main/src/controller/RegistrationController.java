@@ -88,14 +88,14 @@ public class RegistrationController {
 			tfEmail.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
 			new animatefx.animation.Shake(tfEmail).play();
 			errorEmail.setVisible(true);
-			this.showDialog("Please Enter valid Email");
+			this.showDialog("Please Enter valid Email\nValid emails are gmail, hotmail, yahoo, aol, or icloud.");
 			return;
 		}
 		if (!isValidPassword()) {
 			tfUserPassword.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
 			new animatefx.animation.Shake(tfUserPassword).play();
 			errorPassword.setVisible(true);
-			this.showDialog("Password cannot be empty");
+			this.showDialog("Password must contain:\nAt least 1 lowercase character\nAt least 1 uppercase character\nAt least 1 number\nAt least 1 special character");
 			return;
 		}
 		String query = "insert into user_info values (?,?,?,?,?)";
@@ -149,18 +149,47 @@ public class RegistrationController {
 	public boolean isValidEmail() {
 		String email = tfEmail.getText();
 		// Using the email regex pattern to validate email field
-		String emailRegex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+		String emailRegex = "^[a-zA-Z0-9+_.-]+@(gmail.com|yahoo.com|aol.com|icloud.com)+$";
 		Pattern pattern = Pattern.compile(emailRegex);
 		Matcher matcher = pattern.matcher(email);
 		return matcher.matches();
 	}
 
 	public boolean isValidPassword() {
-		String pass = tfUserPassword.getText();
-		if (pass.length() > 0) {
-			return true;
-		}
-		return false;
+		String password = tfUserPassword.getText();
+	    int digit=0;
+	    int special=0;
+	    int upCount=0;
+	    int loCount=0;
+	    
+        for(int i =0;i<password.length();i++)
+        {
+            char c = password.charAt(i);
+            
+            if(Character.isUpperCase(c))
+            {
+                upCount++;
+            }
+            if(Character.isLowerCase(c))
+            {
+                loCount++;
+            }
+            if(Character.isDigit(c))
+            {
+                digit++;
+            }
+            if(c>=33 && c<=46||c>=58 && c<=64 || c>=123 && c<=126)
+            {
+                special++;
+            }
+        }
+        if(special>=1 && loCount>=1 && upCount>=1 && digit>=1 && password.length() >= 8){
+        	return true;
+        }
+        else
+        {
+        	return false;
+        }
 	}
 
 	// Clear the field styles upon successful validation or on loading time
