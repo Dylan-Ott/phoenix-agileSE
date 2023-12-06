@@ -9,6 +9,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane minHeight="700.0" minWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileController">
@@ -33,17 +34,20 @@
       	 	<Font size="14.0"/>
       	 </font>
       </Button>
-      <Label layoutX="415.0" layoutY="210.0" text="Order History">
+      <Label layoutX="430.0" layoutY="210.0" text="Order History">
       	 <font>
       	 	<Font size="24.0"/>
       	 </font>
       </Label>
-      <TableView fx:id="orderHistoryTable" layoutX="300.0" layoutY="250.0" prefHeight="400.0" prefWidth="400.0">
+      <TableView fx:id="orderHistoryTable" layoutX="240.0" layoutY="250.0" prefHeight="400.0" prefWidth="532.0">
         <columns>
+          <TableColumn fx:id="histTableNumber" prefWidth="51.0" text="Order #" />
           <TableColumn fx:id="histTableDate" prefWidth="81.0" text="Date" />
           <TableColumn fx:id="histTableProductName" prefWidth="239.0" text="Product Name" />
           <TableColumn fx:id="histTableCost" minWidth="0.0" prefWidth="81.0" text="Total" />
+          <TableColumn fx:id="histTableStatus" prefWidth="81.0" text="Status" />
         </columns>
       </TableView>
+      <VBox fx:id="vboxx" layoutX="776.0" layoutY="276.0" />
    </children>
 </AnchorPane>

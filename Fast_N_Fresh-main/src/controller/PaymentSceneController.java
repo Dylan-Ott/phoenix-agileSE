@@ -4,6 +4,7 @@ package controller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -87,6 +88,9 @@ public class PaymentSceneController extends ProductBaseController {
 
 	@FXML
 	private Label errorCardNumber;
+	
+	@FXML
+	private Label errorDate;
 
 	@FXML
 	private ToggleGroup payment;
@@ -202,32 +206,52 @@ public class PaymentSceneController extends ProductBaseController {
 				addressField.setStyle(null);
 				if (isCityValid()) {
 					if (isZipValid()) {
-						// Proceed to Ordering if Cash On Delivery is selected
-						// Else do Credit card number validation
-						if (codStatus) {
-							proceedOrder(event);
-						} else {
-							String cardnum = cardnumber.getText();
-							long number = Long.parseLong(cardnum);
-							if (isValid(number)) {
-								errorCardNumber.setVisible(false);
-								cardnumber.setStyle(null);
+						LocalDate now = LocalDate.now();
+						if(now.isBefore(dateField.getValue()))
+						{
+							// Proceed to Ordering if Cash On Delivery is selected
+							// Else do Credit card number validation
+							if (codStatus) {
 								proceedOrder(event);
 							} else {
-								errorCardNumber.setVisible(true);
-								cardnumber.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
-								new animatefx.animation.Shake(cardnumber).play();
-								Dialog<String> dialog = new Dialog<String>();
-								// Setting the title
-								dialog.setTitle("Invalid Card");
-								ButtonType type = new ButtonType("OK", ButtonData.OK_DONE);
-								// Setting the content of the dialog
-								dialog.setContentText("Card Number is invalid");
-								// Adding buttons to the dialog pane
-								dialog.getDialogPane().getButtonTypes().add(type);
-								dialog.showAndWait();
+								String cardnum = cardnumber.getText();
+								long number = Long.parseLong(cardnum);
+								if (isValid(number)) {
+									errorCardNumber.setVisible(false);
+									cardnumber.setStyle(null);
+									proceedOrder(event);
+								} else {
+									errorCardNumber.setVisible(true);
+									cardnumber.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
+									new animatefx.animation.Shake(cardnumber).play();
+									Dialog<String> dialog = new Dialog<String>();
+									// Setting the title
+									dialog.setTitle("Invalid Card");
+									ButtonType type = new ButtonType("OK", ButtonData.OK_DONE);
+									// Setting the content of the dialog
+									dialog.setContentText("Card Number is invalid");
+									// Adding buttons to the dialog pane
+									dialog.getDialogPane().getButtonTypes().add(type);
+									dialog.showAndWait();
 
+								}
 							}
+						}
+						else
+						{
+							// bad date
+							errorDate.setVisible(true);
+							dateField.setStyle("-fx-border-color: red; -fx-border-width: 2px ;");
+							new animatefx.animation.Shake(dateField).play();
+							Dialog<String> dialog = new Dialog<String>();
+							// Setting the title
+							dialog.setTitle("Invalid Expiration Date");
+							ButtonType type = new ButtonType("OK", ButtonData.OK_DONE);
+							// Setting the content of the dialog
+							dialog.setContentText("Card is expired (check expiration date)!");
+							// Adding buttons to the dialog pane
+							dialog.getDialogPane().getButtonTypes().add(type);
+							dialog.showAndWait();
 						}
 					}
 					else
@@ -311,6 +335,7 @@ public class PaymentSceneController extends ProductBaseController {
 		// Adding buttons to the dialog pane
 		dialog.getDialogPane().getButtonTypes().add(type);
 		dialog.showAndWait();
+		cart.clearCart();
 		ScreenController.goToCatalogPage(event);
 	}
 
@@ -352,7 +377,7 @@ public class PaymentSceneController extends ProductBaseController {
 
 	// Update method that interacts with the user_order_history table to store user order information for Analytics purposes
 	private void saveOrderHistory(Connection conn, CartItem item, Product product) {
-		String query = "insert into user_order_history values (?,?,?,?,?)";
+		String query = "insert into user_order_history values (?,?,?,?,?,?,?)";
 		PreparedStatement orderStmt;
 		try {
 			orderStmt = conn.prepareStatement(query);
@@ -361,6 +386,9 @@ public class PaymentSceneController extends ProductBaseController {
 			orderStmt.setString(3, item.getItemTotalValue());
 			orderStmt.setString(4, product.getCatalog());
 			orderStmt.setString(5, order_date);
+			orderStmt.setString(6, "Placed");
+			// This value will be auto-incrmented by the DB
+			orderStmt.setString(7, "0");
 			orderStmt.executeUpdate();
 			orderStmt.close();
 		} catch (Exception e) {

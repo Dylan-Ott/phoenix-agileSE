@@ -8,6 +8,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+
 public class Cart {
 
 	private HashMap<String, CartItem> cartItems = new HashMap<String, CartItem>();
@@ -46,6 +49,16 @@ public class Cart {
 			cartItems.put(entity.getProductId(), entity);
 		}
 
+	}
+	
+	public EventHandler<ActionEvent> removeProduct(CartItem entity)
+	{
+		if (cartItems.containsKey(entity.getProductId()))
+		{
+			cartItems.get(entity.getProductId()).setQuantity(0);
+			cartItems.remove(entity.getProductId());
+		}
+		return null;
 	}
 
 	public void clearCart() {

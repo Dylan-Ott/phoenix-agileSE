@@ -16,19 +16,19 @@
          <font>
             <Font size="24.0" />
          </font></Label>
-      <Button fx:id="btnSubmit" layoutX="475.0" layoutY="510.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="34.0" prefWidth="71.0" text="Submit">
-         <font>
-            <Font size="16.0" />
-         </font></Button>
       <TextField fx:id="tfName" layoutX="431.0" layoutY="150.0" />
       <TextField fx:id="tfContact" layoutX="431.0" layoutY="225.0" />
       <TextField fx:id="tfEmail" layoutX="431.0" layoutY="300.0" />
+      <PasswordField fx:id="tfUserPassword" layoutX="431.0" layoutY="375.0" />
+            <Button fx:id="btnSubmit" layoutX="475.0" layoutY="510.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="34.0" prefWidth="71.0" text="Submit">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
       <Button fx:id="backToLogin" layoutX="744.0" layoutY="63.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="31.0" prefWidth="116.0" text="Back to Login">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <PasswordField fx:id="tfUserPassword" layoutX="431.0" layoutY="375.0" />
       <Label fx:id="lblPassword" layoutX="332.0" layoutY="375.0" prefHeight="26.0" prefWidth="71.0" text="Password:" />
       <Label fx:id="errorNameField" layoutX="436.0" layoutY="181.0" text="Name cannot be empty" textFill="#dd0b0b" visible="false" />
       <Label fx:id="errorEmail" layoutX="435.0" layoutY="331.0" text="Enter a valid Email Id" textFill="#dd0b0b" visible="false" />
